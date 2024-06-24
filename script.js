@@ -35,8 +35,13 @@ function updateWeather(data) {
         const weatherCard = document.createElement('div');
         weatherCard.className = 'weatherCard';
 
+        // Extract and format the date
+        const date = new Date(day.date);
+        const options = { day: 'numeric', month: 'long' };
+        const formattedDate = date.toLocaleDateString('ru-RU', options);
+
         weatherCard.innerHTML = `
-            <h3>${day.date}</h3>
+            <h3>${formattedDate}</h3>
             <img src="${day.day.condition.icon}" alt="${day.day.condition.text}">
             <ul>
                 <li>Температура: ${day.day.avgtemp_c} °</li>
@@ -81,3 +86,4 @@ function updateBackground(data) {
     header.style.backgroundColor = headerBackgroundColor;
     headerText.style.color = headerTextColor;
 }
+    
