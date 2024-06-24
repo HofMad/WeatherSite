@@ -2,7 +2,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
     const city = document.getElementById('cityInput').value.trim();
     if (city) {
         const apiKey = 'af99b618153d4b25bb7132217242605';
-        const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no`;
+        const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no`;
 
         fetch(apiUrl)
             .then(response => {
@@ -35,7 +35,6 @@ function updateWeather(data) {
         const weatherCard = document.createElement('div');
         weatherCard.className = 'weatherCard';
 
-        // Extract and format the date
         const date = new Date(day.date);
         const options = { day: 'numeric', month: 'long' };
         const formattedDate = date.toLocaleDateString('ru-RU', options);
@@ -86,4 +85,3 @@ function updateBackground(data) {
     header.style.backgroundColor = headerBackgroundColor;
     headerText.style.color = headerTextColor;
 }
-    
